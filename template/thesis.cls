@@ -150,6 +150,7 @@
 \soulregister\pageref7
 \soulregister\eqref7
 \epstopdfsetup{outdir=/tmp/}
+\usepackage{acronym}
 
 \newcommand*{\doi}[1]{\href{http://dx.doi.org/#1}{doi: #1}}
 %\usepackage{algorithm}
@@ -255,7 +256,7 @@
       \smallskip
       {\LARGE \authornames \par}
       \vfill
-      {\large A thesis submitted in partial fulfillment for the \par}
+      {\large A thesis submitted in partial fulfilment for the \par}
       {\large degree of Doctor of Philosophy \par}
       \bigskip
       %{\LARGE Supervisor: \supname \par}
