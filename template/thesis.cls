@@ -236,7 +236,7 @@
   \thispagestyle{empty}
   \begin{titlepage}
 	\begin{tikzpicture}[remember picture, overlay]
-	  \node [anchor=north east, inner sep=18mm]  at (current page.north east)
+	  \node [anchor=north east, inner sep=-12mm]  at (current page.north east)
 	     {\includegraphics[height=2cm]{uts-logo}};
 	\end{tikzpicture}
 
