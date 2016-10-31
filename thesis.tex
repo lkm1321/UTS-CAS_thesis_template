@@ -6,7 +6,7 @@
 %% ----------------------------------------------------------------
 
 % Set up the document
-\documentclass[a4paper, 11pt, oneside]{template/thesis} % Use the "thesis" style, based on the ECS thesis style by Steve Gunn
+\documentclass[a4paper, 11pt, twoside]{template/thesis} % Use the "thesis" style, based on the ECS thesis style by Steve Gunn
 \graphicspath{{figures/}} % Location of the graphics files (set up for graphics to be in PDF format)
 % You can also include multiple paths. eg: \graphicspath{{figures/}{figures/chapter1}{figures/chapter2}}
 
@@ -101,11 +101,11 @@ Date:\\
 
 \fancyhead[RE,LO]{\it\leftmark}
 %% ----------------------------------------------------------------
-\lhead{\emph{Contents}} % Set the left side page header to "Contents"
+
 \tableofcontents % Write out the Table of Contents
 
 % ----------------------------------------------------------------
-\lhead{\emph{List of Figures}} % Set the left side page header to "List if Figures"
+
 \listoffigures % Write out the List of Figures
 
 %% ----------------------------------------------------------------
@@ -118,8 +118,8 @@ Date:\\
 \input{chapters/acronyms}  % This file contains all the Acronyms, Abbreveations and Nomenclature.
 
 \begingroup
-\clearpage % Start a new page
-\lhead{\emph{List of Publications}}
+\cleardoublepage % Start a new page
+
 \renewcommand\bibname{List of Publications}
 %\input{chapters/pub_list.bbl}
 % Before uncommenting this build, chapters/pub_list.tex
