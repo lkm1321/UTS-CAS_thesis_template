@@ -31,7 +31,7 @@
 \thispagestyle{plain}
 \null\vfil
 %\vskip 60\p@
-\begin{center}{\huge\bf Declaration of Authorship\par}\end{center}
+\begin{center}{\huge\bf Certificate of Original Authorship\par}\end{center}
 %\vskip 60\p@
 {\normalsize #1}
 \vfil\vfil\null
@@ -66,11 +66,14 @@
 \clubpenalty=9999                 % Almost no orphans at top of page.
 \interfootnotelinepenalty=9999    % Almost never break footnotes.
 \usepackage{fancyhdr}
-\lhead[\rm\thepage]{\fancyplain{}{\sl{\rightmark}}}
-\rhead[\fancyplain{}{\sl{\leftmark}}]{\rm\thepage}
-\chead{}\lfoot{}\rfoot{}\cfoot{}
-\pagestyle{fancy}
-\renewcommand{\chaptermark}[1]{\btypeout{\thechapter\space #1}\markboth{\@chapapp\ \thechapter\ #1}{\@chapapp\ \thechapter\ #1}}
+%\lhead[\rm\thepage]{\fancyplain{}{\sl{\rightmark}}}
+%\rhead[\fancyplain{}{\sl{\leftmark}}]{\rm\thepage}
+%\chead{}\lfoot{}\rfoot{}\cfoot{}
+\pagestyle{fancy} %format for twoside
+\fancyhf{}
+\fancyhead[LE,RO]{\rm\thepage}
+\fancyhead[RE,LO]{\nouppercase{\it\leftmark}}
+\renewcommand{\chaptermark}[1]{\btypeout{\thechapter\space #1}\markboth{\it\@chapapp\ \thechapter.\ #1}{\@chapapp\ \thechapter\ #1}}
 \renewcommand{\sectionmark}[1]{}
 \renewcommand{\subsectionmark}[1]{}
 \def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
@@ -133,11 +136,13 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{rotating}
-
+\usepackage[table]{xcolor} % http://ctan.org/pkg/xcolor
 \usepackage{hhline}
-
+\usepackage{tikz}
+\usepackage{listings} %Listings package
+\usepackage{template/lstpatch} % Hack for listings package
 \usepackage{caption}
-\usepackage{subcaption}
+%\usepackage{subcaption}
 \usepackage{placeins}
 \usepackage{pgfplots}
 \usepackage{pgfplotstable}
@@ -150,13 +155,13 @@
 \soulregister\pageref7
 \soulregister\eqref7
 \epstopdfsetup{outdir=/tmp/}
-\usepackage{acronym}
+\usepackage[withpage]{acronym}
 
 \newcommand*{\doi}[1]{\href{http://dx.doi.org/#1}{doi: #1}}
 %\usepackage{algorithm}
 \usepackage{algpseudocode}
 
-\renewcommand{\thesubfigure}{\alph{subfigure}} %  Changes the numbering style of the subcaptions
+%\renewcommand{\thesubfigure}{\alph{subfigure}} %  Changes the numbering style of the subcaptions
 
 \definecolor{shadecolor}{gray}{0.95}
 
@@ -256,8 +261,8 @@
       \smallskip
       {\LARGE \authornames \par}
       \vfill
-      {\large A thesis submitted in partial fulfilment for the \par}
-      {\large degree of Doctor of Philosophy \par}
+      {\large A thesis submitted in partial fulfilment of the \par}
+      {\large requirements for the degree of Doctor of Philosophy \par}
       \bigskip
       %{\LARGE Supervisor: \supname \par}
       %{\LARGE Co-supervisor: \cosupname \par}
@@ -296,18 +301,18 @@
   \null
   \begin{center}
     \setlength{\parskip}{0pt}
-    {\normalsize \UNIVNAME \par}
-    \bigskip
-    {\huge{\textit{Abstract}} \par}
-    \bigskip
-    {\normalsize \facname \par}
-    {\normalsize \deptname \par}
-    \bigskip
-    {\normalsize Doctor of Philosophy\par}
-    \bigskip
-    {\normalsize\bf \@title \par}
+    %\bigskip
+    \vspace{-5em}
+    {\Large \bf \thesistitlename \par}
     \medskip
-    {\normalsize by \authornames \par}
+    {\normalsize by\par \medskip \authornames \par}
+     %\bigskip \bigskip
+     \vspace{4em}
+    {\normalsize A thesis submitted in partial fulfilment of the requirements for the \par}
+    {\normalsize degree of Doctor of Philosophy \par}
+     \bigskip
+    \bigskip
+    {\Huge{\textit{Abstract}} \par}
     \bigskip
   \end{center}
 }
@@ -332,7 +337,7 @@
     \fi
     \chapter*{\contentsname
         \@mkboth{
-           \MakeUppercase\contentsname}{\MakeUppercase\contentsname}}
+           \contentsname}{\contentsname}}
     \@starttoc{toc}
     \if@restonecol\twocolumn\fi
    \cleardoublepage
@@ -349,8 +354,8 @@
       \@restonecolfalse
     \fi
     \chapter*{\listfigurename
-      \@mkboth{\MakeUppercase\listfigurename}
-              {\MakeUppercase\listfigurename}}
+      \@mkboth{\listfigurename}
+              {\listfigurename}}
     \@starttoc{lof}
     \if@restonecol\twocolumn\fi
     \cleardoublepage
@@ -368,7 +373,7 @@
     \fi
     \chapter*{\listtablename
       \@mkboth{
-          \MakeUppercase\listtablename}{\MakeUppercase\listtablename}}
+          \listtablename}{\listtablename}}
     \@starttoc{lot}
     \if@restonecol\twocolumn\fi
     \cleardoublepage
@@ -381,8 +386,9 @@
 \addtotoc{\listsymbolname}
     \chapter*{\listsymbolname
       \@mkboth{
-          \MakeUppercase\listsymbolname}{\MakeUppercase\listsymbolname}}
-\begin{longtable}[c]{#1}#2\end{longtable}\par
+          \listsymbolname}{\listsymbolname}}
+%\begin{longtable}[c]{#1}#2\end{longtable}
+   #1#2\par
     \cleardoublepage
 }
 
@@ -393,7 +399,7 @@
 \addtotoc{\listnomenclature}
     \chapter*{\listnomenclature
       \@mkboth{
-          \MakeUppercase\listnomenclature}{\MakeUppercase\listnomenclature}}
+          \listnomenclature}{\listnomenclature}}
 \begin{longtable}[c]{#1}#2\end{longtable}\par
     \cleardoublepage
 }
@@ -405,7 +411,7 @@
 \addtotoc{\listoftermsname}
     \chapter*{\listoftermsname
       \@mkboth{
-          \MakeUppercase\listoftermsname}{\MakeUppercase\listoftermsname}}
+          \listoftermsname}{\listoftermsname}}
 
 \begin{longtable}[c]{#1}#2\end{longtable}\par
     \cleardoublepage
@@ -425,7 +431,7 @@
 \btypeout{Acknowledgements}
 \addtotoc{Acknowledgements}
 \thispagestyle{plain}
-\begin{center}{\huge{\textit{Acknowledgements}} \par}\end{center}
+\begin{center}{\Huge{\textit{Acknowledgements}} \par}\end{center}
 {\normalsize #1}
 \vfil\vfil\null
 
