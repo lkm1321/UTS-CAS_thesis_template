@@ -72,8 +72,8 @@
 \pagestyle{fancy} %format for twoside
 \fancyhf{}
 \fancyhead[LE,RO]{\rm\thepage}
-\fancyhead[RE,LO]{\nouppercase{\it\leftmark}}
-\renewcommand{\chaptermark}[1]{\btypeout{\thechapter\space #1}\markboth{\it\@chapapp\ \thechapter.\ #1}{\@chapapp\ \thechapter\ #1}}
+\fancyhead[RE,LO]{\nouppercase{\leftmark}}
+\renewcommand{\chaptermark}[1]{\btypeout{\thechapter\space #1}\markboth{\@chapapp\ \thechapter.\ #1}{\@chapapp\ \thechapter\ #1}}
 \renewcommand{\sectionmark}[1]{}
 \renewcommand{\subsectionmark}[1]{}
 \def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
@@ -82,17 +82,6 @@
 \newpage
 \if@twocolumn\hbox{}\newpage\fi\fi\fi}
 \usepackage{amsmath,amsfonts,amssymb,amscd,amsthm,xspace}
-\theoremstyle{plain}
-\newtheorem{example}{Example}[chapter]
-\newtheorem{theorem}{Theorem}[chapter]
-\newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{axiom}[theorem]{Axiom}
-\theoremstyle{definition}
-\newtheorem{definition}[theorem]{Definition}
-\theoremstyle{remark}
-\newtheorem{remark}[theorem]{Remark}
 \usepackage[centerlast,small,sc]{caption}
 \setlength{\captionmargin}{20pt}
 \newcommand{\fref}[1]{Figure~\ref{#1}}
@@ -123,7 +112,6 @@
 
 \usepackage[square, numbers, comma, sort&compress]{natbib} % Use the "Natbib" style for the references in the Bibliography
 \usepackage{epstopdf}
-\usepackage[ruled]{algorithm2e}
 \usepackage{verbatim} % Needed for the "comment" environment to make LaTeX comments
 %\usepackage{vector} % Allows "\bvec{}" and "\buvec{}" for "blackboard" style bold vectors in maths
 \usepackage{bm}
@@ -148,7 +136,6 @@
 \usepackage{pgfplotstable}
 
 \usepackage{lipsum} % 'Lorem ipsum' text
-\usepackage{todonotes}
 \usepackage{soul}
 \soulregister\cite7
 \soulregister\ref7
@@ -158,8 +145,6 @@
 \usepackage[withpage]{acronym}
 
 \newcommand*{\doi}[1]{\href{http://dx.doi.org/#1}{doi: #1}}
-%\usepackage{algorithm}
-\usepackage{algpseudocode}
 
 %\renewcommand{\thesubfigure}{\alph{subfigure}} %  Changes the numbering style of the subcaptions
 
@@ -212,24 +197,24 @@
                 {UNIVERSITY OF TECHNOLOGY, SYDNEY}}
                 {UNIVERSITY OF TECHNOLOGY, SYDNEY}}
 \department  {\texorpdfstring{\href{http://cas.uts.edu.au/}
-                {Centre for Autonomous Systems}}
-                {Centre for Autonomous Systems}}
+                {School of Mechanical and Mechatronic Engineering}}
+                {School of Mechanical and Mechatronic Engineering}}
 \DEPARTMENT  {\texorpdfstring{\href{http://ims.uts.edu.au/}
-                {CENTRE FOR AUTONOMOUS SYSTEMS}}
-                {CENTRE FOR AUTONOMOUS SYSTEMS}}
+                {SCHOOL OF MECHANICAL AND MECHATRONIC ENGINEERING}}
+                {SCHOOL OF MECHANICAL AND MECHATRONIC ENGINEERING}}
 \group       {\texorpdfstring{\href{http://www.cas.edu.au}
-                {Centre for Autonomous Systems}}
-                {Centre for Autonomous Systems}}
+                {School of Mechanical and Mechatronic Engineering}}
+                {School of Mechanical and Mechatronic Engineering}}
 \GROUP       {\texorpdfstring{\href{http://www.cas.edu.au}
-                {CENTRE FOR AUTONOMOUS SYSTEMS}}
-                {CENTRE FOR AUTONOMOUS SYSTEMS}}
+                {SCHOOL OF MECHANICAL AND MECHATRONIC ENGINEERING}}
+                {SCHOOL OF MECHANICAL AND MECHATRONIC ENGINEERING}}
 \faculty     {\texorpdfstring{\href{http://www.eng.uts.edu.au}
                 {Faculty of Engineering and Information Technology}}
                 {Faculty of Engineering and IT}}
 \FACULTY     {\texorpdfstring{\href{http://www.eng.uts.edu.au}
                 {FACULTY OF ENGINEERING AND INFORMATION TECHNOLOGY}}
                 {FACULTY OF ENGINEERING AND INFORMATION TECHNOLOGY}}
-\addresses   {Centre for Autonomous Systems, Faculty of Engineering, CB11.09.300, University of Technology, Sydney, NSW, 2007, Australia}
+\addresses   {School of Mechanical and Mechatronic Engineering, Faculty of Engineering, CB11.09.300, University of Technology, Sydney, NSW, 2007, Australia}
 \subject     {}
 \keywords    {}
 \renewcommand\maketitle{
@@ -240,10 +225,10 @@
   \hypersetup{pdfkeywords=\keywordnames}
   \thispagestyle{empty}
   \begin{titlepage}
-	\begin{tikzpicture}[remember picture, overlay]
-	  \node [anchor=north east, inner sep=-12mm]  at (current page.north east)
-	     {\includegraphics[height=2cm]{uts-logo}};
-	\end{tikzpicture}
+%	\begin{tikzpicture}[remember picture, overlay]
+%	  \node [anchor=north east, inner sep=-12mm]  at (current page.north east)
+%	     {\includegraphics[height=2cm]{uts-logo-new}};
+%	\end{tikzpicture}
 
     \let\footnotesize\small
     \let\footnoterule\relax
@@ -307,11 +292,10 @@
     \medskip
     {\normalsize by\par \medskip \authornames \par}
      %\bigskip \bigskip
-     \vspace{4em}
-    {\normalsize A thesis submitted in partial fulfilment of the requirements for the \par}
-    {\normalsize degree of Doctor of Philosophy \par}
-     \bigskip
-    \bigskip
+%     \vspace{2em}
+%    {\normalsize A thesis submitted in partial fulfilment of the requirements for the \par}
+%    {\normalsize degree of Doctor of Philosophy \par}
+%     \vspace{2em}
     {\Huge{\textit{Abstract}} \par}
     \bigskip
   \end{center}
